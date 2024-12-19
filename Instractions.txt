@@ -1,0 +1,35 @@
+Create a professional web app for my CV using Next.js. The app should have the following features:
+
+1. **Header Section**:
+   - Display my name: "Assaf Manzur".
+   - Title: "Tech Lead DevOps Engineer".
+   - Links to email (mailto:assaf.manzur@gmail.com) and LinkedIn (https://www.linkedin.com/in/assaf-manzur-55443020).
+   - A clean and modern design with a responsive layout.
+
+2. **Skills Section**:
+   - List skills such as Kubernetes, AWS, Terraform, Istio, CI/CD, Linux, GitOps, Docker, Jenkins.
+   - Use a grid layout for clarity.
+
+3. **Experience Section**:
+   - Include a timeline or cards for roles at Salesforce, Gigya, and others.
+   - Each role should display the job title, company, period, and key accomplishments.
+
+4. **Contact Section**:
+   - A contact form with fields for name, email, and message.
+   - Include form validation and a submission handler that logs the data (mock or API integration).
+
+5. **Responsive Design**:
+   - Ensure the app works well on desktop, tablet, and mobile devices.
+
+6. **Styling**:
+   - Use Tailwind CSS for fast and modern design.
+   - Focus on a clean, professional look suitable for a CV/portfolio.
+
+7. **Hosting**:
+   - Prepare the app for deployment on Netlify.
+   - Add a "Download Resume" button to download a PDF version of the CV.
+
+8. **Deployment**:
+   - Include instructions for deploying the app on Netlify.
+
+Generate the code for this app, and provide a detailed folder structure for easy implementation.
