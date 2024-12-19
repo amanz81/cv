@@ -15,14 +15,29 @@ interface Experience {
   achievements: string[];
 }
 
+interface ContentUpdateData {
+  summary?: string;
+  skills?: Array<{
+    category: string;
+    items: string[];
+  }>;
+  experiences?: Array<{
+    title: string;
+    company: string;
+    period: string;
+    description: string;
+    achievements: string[];
+  }>;
+}
+
 const AdminDashboard = () => {
   const [activeSection, setActiveSection] = useState('summary');
   const router = useRouter();
   const [summary, setSummary] = useState('');
   const [skills, setSkills] = useState<Skill[]>([]);
   const [experiences, setExperiences] = useState<Experience[]>([]);
-  const [isEditing, setIsEditing] = useState(false);
-  const [editingIndex, setEditingIndex] = useState(-1);
+  const [isSaving, setIsSaving] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
 
   useEffect(() => {
     // Load initial data
@@ -55,7 +70,9 @@ const AdminDashboard = () => {
     setSummary('A seasoned DevOps professional with over 14 years of experience...');
   }, []);
 
-  const handleSave = async (section: string, data: any) => {
+  const handleSave = async (section: string, data: ContentUpdateData) => {
+    setIsSaving(true);
+    setSaveError(null);
     try {
       const res = await fetch(`/api/content/${section}`, {
         method: 'PUT',
@@ -64,12 +81,14 @@ const AdminDashboard = () => {
       });
       
       if (res.ok) {
-        setIsEditing(false);
-        setEditingIndex(-1);
-        // Show success message
+        // Show success message or handle success case
+      } else {
+        setSaveError('Failed to save changes');
       }
-    } catch (err) {
-      console.error('Error saving:', err);
+    } catch (error) {
+      setSaveError(error instanceof Error ? error.message : 'Error saving changes');
+    } finally {
+      setIsSaving(false);
     }
   };
 

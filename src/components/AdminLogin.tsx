@@ -21,7 +21,7 @@ const AdminLogin = () => {
       } else {
         setError('Invalid credentials');
       }
-    } catch (err) {
+    } catch (_error) {
       setError('Login failed');
     }
   };
@@ -33,21 +33,25 @@ const AdminLogin = () => {
         {error && <p className="text-red-500 mb-4">{error}</p>}
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-slate-700">Username</label>
+            <label htmlFor="username" className="block text-sm font-medium text-slate-700">Username</label>
             <input
+              id="username"
               type="text"
               value={credentials.username}
               onChange={(e) => setCredentials({ ...credentials, username: e.target.value })}
               className="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-slate-500 focus:ring-slate-500"
+              placeholder="Enter username"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-slate-700">Password</label>
+            <label htmlFor="password" className="block text-sm font-medium text-slate-700">Password</label>
             <input
+              id="password"
               type="password"
               value={credentials.password}
               onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
               className="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-slate-500 focus:ring-slate-500"
+              placeholder="Enter password"
             />
           </div>
           <button

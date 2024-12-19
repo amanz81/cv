@@ -8,15 +8,16 @@ export async function POST(request: Request) {
   const validPassword = process.env.ADMIN_PASSWORD || 'your-secure-password';
 
   if (username === validUsername && password === validPassword) {
-    const cookieStore = cookies();
-    cookieStore.set('admin-token', 'your-secure-token', {
+    const response = NextResponse.json({ success: true });
+    
+    response.cookies.set('admin-token', 'your-secure-token', {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'strict',
       maxAge: 3600 // 1 hour
     });
 
-    return NextResponse.json({ success: true });
+    return response;
   }
 
   return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 });
