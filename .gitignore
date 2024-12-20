@@ -54,3 +54,6 @@ cv.txt
 .vscode
 *.swp
 *.swo
+
+# Local Netlify folder
+.netlify

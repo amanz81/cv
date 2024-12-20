@@ -21,7 +21,8 @@ const AdminLogin = () => {
       } else {
         setError('Invalid credentials');
       }
-    } catch (_error) {
+    } catch (error) {
+      console.error('Login error:', error);
       setError('Login failed');
     }
   };

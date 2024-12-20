@@ -1,8 +1,11 @@
+'use client'; 
 import Skills from '@/components/Skills';
 import Experience from '@/components/Experience';
 import ContactForm from '@/components/ContactForm';
 import Summary from '@/components/Summary';
-import ExportButton from '@/components/ExportButton';
+import dynamic from 'next/dynamic';
+
+const ExportButton = dynamic(() => import('@/components/ExportButton'), { ssr: false });
 
 export default function Home() {
   return (

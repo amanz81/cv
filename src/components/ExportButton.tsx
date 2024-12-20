@@ -1,19 +1,24 @@
-'use client';
+'use client'; // Add this to indicate that this code runs on the client
+
 import React from 'react';
 import html2pdf from 'html2pdf.js';
 
 const ExportButton = () => {
   const handleExport = () => {
     const content = document.getElementById('cv-content');
-    const opt = {
-      margin: 1,
-      filename: 'assaf-manzur-cv.pdf',
-      image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { scale: 2 },
-      jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
-    };
-
-    html2pdf().set(opt).from(content).save();
+    if (content) {
+      const options = {
+        margin: 1,
+        filename: 'assaf-manzur-cv.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+      };
+      // Ensure html2pdf runs only in the browser
+      if (typeof window !== 'undefined') {
+        html2pdf(content, options);
+      }
+    }
   };
 
   return (
@@ -37,4 +42,4 @@ const ExportButton = () => {
   );
 };
 
-export default ExportButton; 
+export default ExportButton;
