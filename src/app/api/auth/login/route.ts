@@ -2,10 +2,11 @@ import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
   try {
-    const { username, password } = await request.json();
-    
-    const validUsername = process.env.ADMIN_USERNAME || 'admin';
-    const validPassword = process.env.ADMIN_PASSWORD || 'your-secure-password';
+
+  const { username, password } = await request.json();
+  
+  const validUsername = process.env.ADMIN_USERNAME || 'some-user';
+  const validPassword = process.env.ADMIN_PASSWORD || 'your-secure-password';
 
     if (username === validUsername && password === validPassword) {
       const response = NextResponse.json({ success: true });
@@ -29,3 +30,5 @@ export async function POST(request: Request) {
     );
   }
 } 
+
+
