@@ -1,0 +1,14 @@
+[build]
+  command = "npm run build"       # Command to build your Next.js app
+  publish = "out"                # Directory to publish (output from Next.js export)
+
+[[redirects]]
+  from = "/*"                    # Redirect all routes
+  to = "/index.html"             # Serve the main HTML file for SPA routing
+  status = 200                   # Use a rewrite instead of a redirect
+
+[functions]
+  directory = "netlify/functions" # Directory for serverless functions
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs" # Netlify plugin for Next.js
