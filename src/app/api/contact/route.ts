@@ -13,19 +13,21 @@ export async function POST(request: Request) {
   try {
     const { name, email, message } = await request.json();
 
-    // Log the incoming data
-    console.log('Received contact form data:', { name, email, message });
-
     const msg = {
       to: 'assaf.manzur@gmail.com', // Your recipient email
       from: 'assaf.manzur@gmail.com', // Use a verified sender email
       subject: 'New Contact Form Submission',
-      text: message,
-      html: `<p>${message}</p>`,
+      text: `Message from: ${name} <${email}>\n\n${message}`, // Include sender's email in the text body
+      html: `<p>Message from: ${name} &lt;${email}&gt;</p><p>${message}</p>`, // Include sender's email in the HTML body
     };
 
-    await sgMail.send(msg);
-    console.log('Email sent successfully');
+    await sgMail.send(msg)
+      .then(() => {
+        console.log('Email sent successfully');
+      })
+      .catch((error) => {
+        console.error('Error sending email:', error);
+      });
 
     return NextResponse.json({ success: true, message: 'Message sent successfully!' });
   } catch (error) {
