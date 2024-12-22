@@ -7,11 +7,32 @@ const ContactForm = () => {
     email: '',
     message: ''
   });
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Add your form submission logic here
-    console.log('Form submitted:', formData);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        setSuccessMessage('Message sent successfully!');
+        setErrorMessage('');
+        // Optionally reset the form
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setErrorMessage('Failed to submit form');
+        setSuccessMessage('');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setErrorMessage('Error submitting form');
+      setSuccessMessage('');
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -79,6 +100,8 @@ const ContactForm = () => {
             Send Message
           </button>
         </form>
+        {successMessage && <p className="text-green-500 mt-4">{successMessage}</p>}
+        {errorMessage && <p className="text-red-500 mt-4">{errorMessage}</p>}
       </div>
     </section>
   );

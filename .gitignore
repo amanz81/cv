@@ -57,3 +57,4 @@ cv.txt
 
 # Local Netlify folder
 .netlify
+sendgrid.env
