@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@netlify/plugin-nextjs": "^5.9.2",
+    "@opennextjs/netlify": "^5.9.2",
     "@react-google-maps/api": "^2.20.3",
     "@sendgrid/mail": "^8.1.4",
     "bcryptjs": "^2.4.3",

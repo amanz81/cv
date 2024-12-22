@@ -11,4 +11,4 @@
   directory = "netlify/functions"  # Directory for serverless functions (if any)
 
 [plugins]
-  package = "@netlify/plugin-nextjs"  # Netlify plugin for Next.js
+  package = "@opennextjs/netlify"  # Netlify plugin for Next.js
