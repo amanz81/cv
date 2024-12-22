@@ -13,7 +13,7 @@ const ContactForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const res = await fetch('/api/contact', {
+      const res = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -50,7 +50,7 @@ const ContactForm = () => {
           Looking for DevOps consultation or interested in discussing infrastructure solutions? 
           Feel free to reach out.
         </p>
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-6" netlify="true" name="contact">
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-gray-700">
               Name
