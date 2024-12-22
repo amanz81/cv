@@ -28,9 +28,10 @@ const ContactForm = () => {
         setErrorMessage('Failed to submit form');
         setSuccessMessage('');
       }
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Error submitting form:', error);
-      setErrorMessage('Error submitting form');
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      setErrorMessage(errorMessage);
       setSuccessMessage('');
     }
   };
@@ -50,7 +51,7 @@ const ContactForm = () => {
           Looking for DevOps consultation or interested in discussing infrastructure solutions? 
           Feel free to reach out.
         </p>
-        <form onSubmit={handleSubmit} className="space-y-6" netlify="true" name="contact">
+        <form onSubmit={handleSubmit} className="space-y-6" data-netlify="true" name="contact">
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-gray-700">
               Name

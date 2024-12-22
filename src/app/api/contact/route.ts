@@ -30,8 +30,9 @@ export async function POST(request: Request) {
       });
 
     return NextResponse.json({ success: true, message: 'Message sent successfully!' });
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Error handling contact form submission:', error);
-    return NextResponse.json({ error: 'Failed to send message', details: error.message }, { status: 500 });
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    return NextResponse.json({ error: 'Failed to send message', details: errorMessage }, { status: 500 });
   }
 } 
