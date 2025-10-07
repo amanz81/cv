@@ -57,3 +57,6 @@ cv.txt
 
 # Local Netlify folder
 .netlify
+
+# IDE history files
+.history
