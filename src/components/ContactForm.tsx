@@ -1,54 +1,6 @@
-'use client';
-import React, { useState } from 'react';
+import React from 'react';
 
 const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus('idle');
-
-    try {
-      // Option 1: Using EmailJS (you'll need to set up an account)
-      // const emailjs = (await import('@emailjs/browser')).default;
-      // await emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formData, 'YOUR_PUBLIC_KEY');
-      
-      // Option 2: Using a simple API endpoint (recommended for production)
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        setSubmitStatus('success');
-        setFormData({ name: '', email: '', message: '' });
-      } else {
-        setSubmitStatus('error');
-      }
-    } catch (error) {
-      console.error('Error sending message:', error);
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
 
   return (
     <section id="contact" className="py-16 bg-gradient-to-br from-slate-50 to-slate-100">
@@ -60,7 +12,7 @@ const ContactForm = () => {
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             Looking for DevOps consultation or interested in discussing infrastructure solutions? 
-            I'd love to hear about your project and how I can help bring your vision to life.
+            I&apos;d love to hear about your project and how I can help bring your vision to life.
           </p>
         </div>
         <div className="bg-white rounded-2xl shadow-xl p-8">
