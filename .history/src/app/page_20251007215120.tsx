@@ -3,6 +3,7 @@ import Skills from '@/components/Skills';
 import Experience from '@/components/Experience';
 import ContactForm from '@/components/ContactForm';
 import Summary from '@/components/Summary';
+import Achievements from '@/components/Achievements';
 import Navigation from '@/components/Navigation';
 import dynamic from 'next/dynamic';
 
@@ -41,6 +42,7 @@ export default function Home() {
           <Summary />
           <Skills />
           <Experience />
+          <Achievements />
         </div>
       </div>
       <ContactForm />

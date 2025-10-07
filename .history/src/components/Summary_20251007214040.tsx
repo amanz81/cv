@@ -2,7 +2,7 @@ import React from 'react';
 
 const Summary = () => {
   return (
-    <section id="about" className="mb-16 bg-white rounded-2xl shadow-xl p-8 transform hover:scale-[1.02] transition-transform duration-300">
+    <section className="mb-16 bg-white rounded-2xl shadow-xl p-8 transform hover:scale-[1.02] transition-transform duration-300">
       <h2 className="text-3xl font-bold mb-6 text-slate-800 flex items-center">
         <span className="bg-slate-800 w-2 h-8 mr-4 rounded-full"></span>
         About Me

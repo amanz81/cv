@@ -41,6 +41,7 @@ export default function Home() {
           <Summary />
           <Skills />
           <Experience />
+          <Achievements />
         </div>
       </div>
       <ContactForm />
