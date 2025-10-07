@@ -43,18 +43,37 @@ const Experience = () => {
   return (
     <section id="experience" className="py-16">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-8">Professional Experience</h2>
+        <h2 className="text-3xl font-bold mb-12 text-slate-800 flex items-center">
+          <span className="bg-slate-800 w-2 h-8 mr-4 rounded-full"></span>
+          Professional Experience
+        </h2>
         <div className="space-y-8">
           {experiences.map((exp, index) => (
-            <div key={index} className="border-l-4 border-slate-500 pl-4 hover:border-slate-700 transition-colors">
-              <h3 className="text-xl font-semibold text-slate-800">{exp.title}</h3>
-              <p className="text-slate-600">{exp.company} | {exp.period}</p>
-              <p className="mt-2 text-slate-700">{exp.description}</p>
-              <ul className="mt-2 list-disc list-inside">
-                {exp.achievements.map((achievement, i) => (
-                  <li key={i} className="text-slate-600 text-sm">{achievement}</li>
-                ))}
-              </ul>
+            <div key={index} className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 border-l-4 border-slate-200 hover:border-slate-500">
+              <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                <div>
+                  <h3 className="text-2xl font-bold text-slate-800 mb-2">{exp.title}</h3>
+                  <div className="flex flex-col md:flex-row md:items-center md:space-x-4 text-slate-600">
+                    <span className="font-semibold text-slate-700">{exp.company}</span>
+                    <span className="hidden md:inline">•</span>
+                    <span className="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium">
+                      {exp.period}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <p className="text-lg text-slate-700 mb-6 leading-relaxed">{exp.description}</p>
+              <div>
+                <h4 className="text-lg font-semibold text-slate-800 mb-4">Key Achievements:</h4>
+                <ul className="space-y-3">
+                  {exp.achievements.map((achievement, i) => (
+                    <li key={i} className="flex items-start text-slate-700">
+                      <span className="text-slate-500 mr-3 mt-1">•</span>
+                      <span>{achievement}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           ))}
         </div>
