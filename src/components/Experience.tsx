@@ -6,69 +6,75 @@ const Experience = () => {
       title: 'DevOps Tech Lead',
       company: 'Salesforce',
       period: 'August 2024 - Present',
-      description: 'Leading DevOps initiatives and technical strategies across teams.',
+      description:
+        'Leading platform and DevOps direction across teams, balancing architecture, delivery speed, and operational reliability.',
       achievements: [
-        'Led a team of engineers to architect and implement scalable DevOps solutions, ensuring 99.9% uptime',
-        'Defined technical strategies for Kubernetes and Istio implementation',
-        'Facilitated knowledge-sharing workshops to upskill team members',
-        'Spearheaded the integration of GitOps workflows'
-      ]
+        'Set technical direction for Kubernetes, Istio, and GitOps adoption across shared engineering environments',
+        'Led engineers through platform decisions that improved operational consistency and reduced delivery friction',
+        'Built alignment between development and operations teams around scalable, supportable delivery patterns',
+        'Raised team capability through mentorship, design reviews, and knowledge-sharing on production-grade practices',
+      ],
     },
     {
       title: 'Senior DevOps Engineer',
       company: 'Salesforce',
       period: 'November 2021 - August 2024',
-      description: 'Responsible for infrastructure automation and CI/CD implementation.',
+      description:
+        'Owned infrastructure automation, observability, and CI/CD improvements for production systems at scale.',
       achievements: [
-        'Designed and implemented automated infrastructure using Terraform and Ansible',
-        'Enhanced monitoring and alerting systems with Prometheus and Grafana, improving response times by 30%',
-        'Built scalable CI/CD pipelines enabling rapid feature deployment',
-        'Collaborated with cross-functional teams to align development and operations'
-      ]
+        'Designed and implemented infrastructure automation using Terraform and Ansible to improve repeatability and change control',
+        'Improved monitoring and alerting with Prometheus and Grafana, helping teams respond faster and operate with better visibility',
+        'Built and evolved CI/CD pipelines that supported safer and faster delivery for engineering teams',
+        'Partnered with application, platform, and operations stakeholders to turn infrastructure needs into practical execution',
+      ],
     },
     {
       title: 'Senior System Engineer',
       company: 'Gigya',
       period: 'January 2016 - May 2019',
-      description: 'Managed large-scale virtualized environments for enterprise clients.',
+      description:
+        'Managed large-scale infrastructure environments and helped modernize operations through automation and platform improvements.',
       achievements: [
-        'Managed and maintained large-scale, virtualized environments',
-        'Automated routine tasks with custom scripts',
-        'Led migration of legacy systems to modern cloud infrastructure, reducing costs by 20%',
-        'Mentored junior engineers and fostered continuous learning'
-      ]
-    }
+        'Operated and maintained large-scale virtualized environments supporting enterprise workloads',
+        'Automated routine operational tasks with scripting to reduce manual effort and improve consistency',
+        'Contributed to modernization efforts that moved legacy environments toward more scalable cloud-based patterns',
+        'Supported junior engineers through hands-on guidance and day-to-day technical mentoring',
+      ],
+    },
   ];
 
   return (
     <section id="experience" className="py-16">
-      <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-12 text-slate-800 flex items-center">
-          <span className="bg-slate-800 w-2 h-8 mr-4 rounded-full"></span>
+      <div className="mx-auto max-w-6xl px-4">
+        <h2 className="mb-12 flex items-center text-3xl font-bold text-slate-800">
+          <span className="mr-4 h-8 w-2 rounded-full bg-slate-800"></span>
           Professional Experience
         </h2>
         <div className="space-y-8">
           {experiences.map((exp, index) => (
-            <div key={index} className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 border-l-4 border-slate-200 hover:border-slate-500">
-              <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+            <div
+              key={index}
+              className="rounded-2xl border-l-4 border-slate-200 bg-white p-8 shadow-lg transition-all duration-300 hover:border-slate-500 hover:shadow-xl"
+            >
+              <div className="mb-4 flex flex-col md:flex-row md:items-start md:justify-between">
                 <div>
-                  <h3 className="text-2xl font-bold text-slate-800 mb-2">{exp.title}</h3>
-                  <div className="flex flex-col md:flex-row md:items-center md:space-x-4 text-slate-600">
+                  <h3 className="mb-2 text-2xl font-bold text-slate-800">{exp.title}</h3>
+                  <div className="flex flex-col text-slate-600 md:flex-row md:items-center md:space-x-4">
                     <span className="font-semibold text-slate-700">{exp.company}</span>
-                    <span className="hidden md:inline">•</span>
-                    <span className="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium">
+                    <span className="hidden md:inline">&middot;</span>
+                    <span className="rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700">
                       {exp.period}
                     </span>
                   </div>
                 </div>
               </div>
-              <p className="text-lg text-slate-700 mb-6 leading-relaxed">{exp.description}</p>
+              <p className="mb-6 text-lg leading-relaxed text-slate-700">{exp.description}</p>
               <div>
-                <h4 className="text-lg font-semibold text-slate-800 mb-4">Key Achievements:</h4>
+                <h4 className="mb-4 text-lg font-semibold text-slate-800">Key Contributions</h4>
                 <ul className="space-y-3">
                   {exp.achievements.map((achievement, i) => (
                     <li key={i} className="flex items-start text-slate-700">
-                      <span className="text-slate-500 mr-3 mt-1">•</span>
+                      <span className="mr-3 mt-1 text-slate-500">&middot;</span>
                       <span>{achievement}</span>
                     </li>
                   ))}
@@ -82,4 +88,4 @@ const Experience = () => {
   );
 };
 
-export default Experience; 
+export default Experience;

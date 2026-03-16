@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Navigation = () => {
   const [activeSection, setActiveSection] = useState('');
@@ -36,25 +36,27 @@ const Navigation = () => {
     { id: 'about', label: 'About' },
     { id: 'skills', label: 'Skills' },
     { id: 'experience', label: 'Experience' },
-    { id: 'contact', label: 'Contact' }
+    { id: 'contact', label: 'Contact' },
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+    <nav className="fixed left-0 right-0 top-0 z-50 border-b border-slate-200 bg-white/90 shadow-sm backdrop-blur-md">
+      <div className="mx-auto max-w-6xl px-4">
+        <div className="flex h-16 items-center justify-between">
           <div className="flex items-center space-x-2">
             <span className="text-xl font-bold text-slate-800">Assaf Manzur</span>
-            <span className="text-sm text-slate-500 hidden sm:inline">| DevOps Engineer</span>
+            <span className="hidden text-sm text-slate-500 sm:inline">
+              | Platform &amp; DevOps Leader
+            </span>
           </div>
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden space-x-8 md:flex">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 className={`text-sm font-medium transition-colors duration-200 ${
                   activeSection === item.id
-                    ? 'text-slate-800 border-b-2 border-slate-800'
+                    ? 'border-b-2 border-slate-800 text-slate-800'
                     : 'text-slate-600 hover:text-slate-800'
                 }`}
               >
