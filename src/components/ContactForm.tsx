@@ -1,6 +1,47 @@
-import React from 'react';
+'use client';
+
+import React, { FormEvent, useState } from 'react';
+
+type FormState = 'idle' | 'submitting' | 'success' | 'error';
+
+const encodeFormData = (data: FormData) => {
+  const searchParams = new URLSearchParams();
+
+  for (const [key, value] of data.entries()) {
+    searchParams.append(key, String(value));
+  }
+
+  return searchParams.toString();
+};
 
 const ContactForm = () => {
+  const [formState, setFormState] = useState<FormState>('idle');
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setFormState('submitting');
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encodeFormData(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Form submission failed');
+      }
+
+      form.reset();
+      setFormState('success');
+    } catch {
+      setFormState('error');
+    }
+  };
+
   return (
     <section id="contact" className="bg-gradient-to-br from-slate-50 to-slate-100 py-16">
       <div className="mx-auto max-w-4xl px-4">
@@ -21,7 +62,7 @@ const ContactForm = () => {
             method="POST"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
-            action="/success"
+            onSubmit={handleSubmit}
             className="space-y-6"
           >
             <input type="hidden" name="form-name" value="contact" />
@@ -74,12 +115,25 @@ const ContactForm = () => {
               ></textarea>
             </div>
 
+            {formState === 'success' && (
+              <p className="rounded-lg bg-green-50 px-4 py-3 text-sm text-green-700">
+                Message sent successfully. I&apos;ll get back to you soon.
+              </p>
+            )}
+
+            {formState === 'error' && (
+              <p className="rounded-lg bg-red-50 px-4 py-3 text-sm text-red-700">
+                Something went wrong while sending the message. Please try again or email me directly.
+              </p>
+            )}
+
             <div className="text-center">
               <button
                 type="submit"
-                className="rounded-lg bg-gradient-to-r from-slate-700 to-slate-800 px-8 py-3 font-semibold text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:from-slate-800 hover:to-slate-900 hover:shadow-xl"
+                disabled={formState === 'submitting'}
+                className="rounded-lg bg-gradient-to-r from-slate-700 to-slate-800 px-8 py-3 font-semibold text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:from-slate-800 hover:to-slate-900 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-70"
               >
-                Send Message
+                {formState === 'submitting' ? 'Sending...' : 'Send Message'}
               </button>
             </div>
           </form>
