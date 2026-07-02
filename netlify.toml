@@ -1,6 +1,12 @@
 [build]
 command = "npm run build"
-publish = ".next"
+publish = "out"
 
 [build.environment]
 NODE_VERSION = "22"
+
+# The exported OG image file has no extension; pin its content type for social scrapers.
+[[headers]]
+for = "/opengraph-image"
+[headers.values]
+Content-Type = "image/png"
