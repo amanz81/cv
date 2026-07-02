@@ -1,5 +1,5 @@
 import CvPrintActions from '@/components/CvPrintActions';
-import { experiences, profile, skills, summary } from '@/data/resume';
+import { approach, experiences, profile, skills, summary } from '@/data/resume';
 
 export default function CvPage() {
   return (
@@ -28,6 +28,17 @@ export default function CvPage() {
               <p key={paragraph}>{paragraph}</p>
             ))}
           </div>
+        </section>
+
+        <section className="mt-8">
+          <h2 className="mb-3 text-xl font-bold uppercase tracking-wide text-slate-800">How I Work</h2>
+          <ul className="space-y-2 text-[15px] leading-7 text-slate-700">
+            {approach.map((item) => (
+              <li key={item.title}>
+                <span className="font-semibold text-slate-800">{item.title}:</span> {item.body}
+              </li>
+            ))}
+          </ul>
         </section>
 
         <section className="mt-8">

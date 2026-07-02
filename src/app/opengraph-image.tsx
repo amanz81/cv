@@ -30,7 +30,7 @@ export default function OpengraphImage() {
             Assaf Manzur
           </div>
           <div style={{ display: 'flex', fontSize: 40, color: '#cbd5e1', marginTop: 12 }}>
-            Senior Platform &amp; DevOps Tech Lead
+            Platform Architect · DevOps &amp; Reliability
           </div>
         </div>
 

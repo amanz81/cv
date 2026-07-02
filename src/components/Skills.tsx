@@ -3,10 +3,11 @@ import { skills } from '@/data/resume';
 const Skills = () => {
   return (
     <section id="skills" className="mb-12 rounded-2xl bg-white p-8 shadow-lg">
-      <h2 className="mb-6 flex items-center text-3xl font-bold text-slate-800">
+      <h2 className="mb-3 flex items-center text-3xl font-bold text-slate-800">
         <span className="mr-4 h-8 w-2 rounded-full bg-slate-800"></span>
-        Selected Technologies
+        Core Technologies
       </h2>
+      <p className="mb-6 text-slate-600">The toolbox behind the work — deep where it counts.</p>
       <div className="flex flex-wrap gap-3">
         {skills.map((skill) => (
           <span

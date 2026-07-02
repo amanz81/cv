@@ -51,9 +51,9 @@ const ContactForm = () => {
             Get in Touch
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-slate-600">
-            If you are hiring for senior platform, DevOps, or infrastructure leadership,
-            I am open to discussing roles where strong engineering judgment, operational
-            discipline, and hands-on execution matter.
+            If you are hiring for principal or staff platform, architecture, or DevOps
+            leadership, I am open to discussing roles where strong engineering judgment,
+            operational discipline, and hands-on execution matter.
           </p>
         </div>
         <div className="rounded-2xl bg-white p-8 shadow-xl">

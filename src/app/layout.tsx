@@ -13,16 +13,16 @@ const geistMono = Geist_Mono({
 });
 
 const siteUrl = "https://assafmanzur.com";
-const title = "Assaf Manzur | Senior Platform and DevOps Tech Lead";
+const title = "Assaf Manzur | Platform Architect & DevOps Leader";
 const description =
-  "Senior platform and DevOps leader with 14+ years of experience in cloud infrastructure, automation, reliability, and engineering leadership.";
+  "Platform architect and DevOps leader with 14+ years across Kubernetes, service mesh, cloud infrastructure, automation, and reliability — designing the paved paths large engineering organizations run on.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title,
   description,
   keywords:
-    "Platform Engineering, DevOps Tech Lead, Kubernetes, AWS, Cloud Infrastructure, Reliability Engineering, Infrastructure Automation, Salesforce",
+    "Platform Architect, Platform Engineering, DevOps, Kubernetes, Service Mesh, Istio, AWS, Cloud Infrastructure, Reliability Engineering, Infrastructure Automation, AI-Assisted DevOps, Salesforce",
   authors: [{ name: "Assaf Manzur" }],
   alternates: {
     canonical: "/",

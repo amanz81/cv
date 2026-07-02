@@ -1,6 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
+import Approach from '@/components/Approach';
 import ContactForm from '@/components/ContactForm';
 import Experience from '@/components/Experience';
 import Navigation from '@/components/Navigation';
@@ -48,6 +49,7 @@ export default function Home() {
           </header>
 
           <Summary />
+          <Approach />
           <Experience />
           <Skills />
         </div>
