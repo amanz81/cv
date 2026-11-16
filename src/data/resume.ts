@@ -71,6 +71,19 @@ export const experiences = [
     technologies: ['Terraform', 'Ansible', 'Prometheus', 'Grafana', 'Jenkins', 'AWS'],
   },
   {
+    title: 'DevOps Engineer',
+    company: 'Datorama, a Salesforce Company',
+    period: 'May 2019 - November 2021',
+    description:
+      'DevOps engineering for the Datorama marketing intelligence platform, part of Salesforce following its acquisition.',
+    highlights: [
+      'Operated and supported production and non-production Linux environments for a high-scale SaaS platform.',
+      'Automated recurring operational work with scripting to reduce manual effort and improve consistency.',
+      'Worked with application teams to solve technical issues and keep production systems reliable.',
+    ],
+    technologies: ['Linux', 'Automation', 'CI/CD', 'Operations', 'Infrastructure'],
+  },
+  {
     title: 'Senior System Engineer',
     company: 'Gigya',
     period: 'January 2016 - May 2019',
